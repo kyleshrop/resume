@@ -189,6 +189,7 @@
             justify-content: center;
             position: relative;
             padding: 2rem;
+            padding-top: 8rem; /* Add extra padding to account for nav */
         }
 
         .hero-content {
@@ -475,8 +476,13 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .hero {
+                padding-top: 6rem; /* Ensure enough space on mobile */
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
+                margin-top: 1rem; /* Add extra margin on mobile */
             }
             
             .contact-info {
