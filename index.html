@@ -119,9 +119,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1.5rem;
+            gap: clamp(0.5rem, 2vw, 1.5rem);
             padding: 0 1rem;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             margin: 0 auto;
             max-width: 100%;
         }
@@ -132,8 +132,8 @@
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
-            padding: 0.4rem 0.8rem;
-            font-size: 0.95rem;
+            padding: 0.4rem clamp(0.4rem, 1.5vw, 0.8rem);
+            font-size: clamp(0.75rem, 2vw, 0.95rem);
             letter-spacing: 0.5px;
             white-space: nowrap;
         }
@@ -160,22 +160,18 @@
         }
 
         /* Mobile nav adjustments */
-        @media (max-width: 640px) {
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.75rem 0;
+            }
+            
             nav ul {
-                gap: 0.5rem;
+                gap: 0.25rem;
                 padding: 0 0.5rem;
             }
             
             nav a {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            nav a {
-                font-size: 0.8rem;
-                padding: 0.3rem 0.5rem;
+                letter-spacing: 0;
             }
         }
 
@@ -518,10 +514,6 @@
             <p class="tagline">Expertise in test automation, performance testing, and debugging with a passion for enhancing software quality through scalable automation solutions</p>
             
             <div class="contact-info">
-                <a href="tel:978-239-5234" class="contact-item">
-                    <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
-                    978-239-5234
-                </a>
                 <a href="mailto:KyleDShropshire@gmail.com" class="contact-item">
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                     KyleDShropshire@gmail.com
@@ -533,10 +525,6 @@
                 <a href="https://www.linkedin.com/in/kyle-shropshire-28141985/" target="_blank" class="contact-item">
                     <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
-                </a>
-                <a href="https://maps.google.com/?q=397+Atlantic+Ave,+Marblehead+MA" target="_blank" class="contact-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    Marblehead, MA
                 </a>
             </div>
         </div>
