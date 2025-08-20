@@ -84,6 +84,8 @@
             padding: 1rem 0;
             transition: all 0.3s ease;
             border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            overflow-y: hidden;
         }
 
         nav.scrolled {
@@ -99,7 +101,9 @@
             align-items: center;
             gap: 2rem;
             padding: 0 2rem;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            min-width: fit-content;
+            margin: 0 auto;
         }
 
         nav a {
@@ -111,6 +115,7 @@
             padding: 0.5rem 1rem;
             font-size: 0.95rem;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         nav a::after {
@@ -132,6 +137,48 @@
         nav a:hover {
             color: var(--primary);
             transform: translateY(-2px);
+        }
+
+        /* Hide scrollbar for nav but keep functionality */
+        nav::-webkit-scrollbar {
+            height: 3px;
+        }
+
+        nav::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.3);
+            border-radius: 3px;
+        }
+
+        nav::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.5);
+        }
+
+        /* For mobile - add subtle scroll indicators */
+        @media (max-width: 768px) {
+            nav::before,
+            nav::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 20px;
+                pointer-events: none;
+                z-index: 1;
+            }
+            
+            nav::before {
+                left: 0;
+                background: linear-gradient(to right, rgba(15, 23, 42, 0.8), transparent);
+            }
+            
+            nav::after {
+                right: 0;
+                background: linear-gradient(to left, rgba(15, 23, 42, 0.8), transparent);
+            }
         }
 
         /* Hero Section */
@@ -428,11 +475,6 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-            
             .hero h1 {
                 font-size: 2.5rem;
             }
