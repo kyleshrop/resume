@@ -457,6 +457,169 @@
             transform: translateY(-2px);
         }
 
+        /* Portfolio Section Styles */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            align-items: start;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(248, 135, 103, 0.1);
+            border-color: rgba(248, 135, 103, 0.3);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .project-description {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .project-demo {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .demo-gif {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-gif:hover {
+            transform: scale(1.02);
+        }
+
+        .tech-stack {
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tech-tag {
+            background: rgba(248, 135, 103, 0.1);
+            color: #cbd5e1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .project-tech-tag:hover {
+            background: rgba(248, 135, 103, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(248, 135, 103, 0.1);
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+
+        .project-link:hover {
+            background: rgba(248, 135, 103, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(248, 135, 103, 0.2);
+            text-decoration: none;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .github-icon {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -484,6 +647,31 @@
             .job-header {
                 flex-direction: column;
             }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .project-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-card {
+                padding: 1.5rem;
+            }
+
+            .project-tech-tags {
+                justify-content: center;
+            }
         }
 
         /* Smooth scrolling */
@@ -504,6 +692,7 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
         </ul>
     </nav>
 
@@ -659,6 +848,87 @@
         </div>
     </section>
 
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        
+        <div class="projects-grid">
+            <!-- Interactive Resume Project -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">IR</div>
+                    <h3 class="project-title">Interactive Resume</h3>
+                </div>
+                
+                <p class="project-description">
+                    A modern, responsive resume website showcasing professional experience, skills, and projects. 
+                    Features clean design, smooth animations, and optimal user experience across all devices.
+                    Built with modern web technologies and best practices for performance and accessibility.
+                </p>
+                
+                <div class="tech-stack">
+                    <h4>Technologies Used:</h4>
+                    <div class="project-tech-tags">
+                        <span class="project-tech-tag">HTML5</span>
+                        <span class="project-tech-tag">CSS3</span>
+                        <span class="project-tech-tag">JavaScript</span>
+                        <span class="project-tech-tag">Responsive Design</span>
+                        <span class="project-tech-tag">GitHub Pages</span>
+                    </div>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/kyleshrop/resume" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View Repository
+                    </a>
+                </div>
+            </div>
+
+            <!-- Eschaton Deck Tracker Project -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">EDT</div>
+                    <h3 class="project-title">Eschaton Deck Tracker</h3>
+                </div>
+                
+                <p class="project-description">
+                    A comprehensive deck management tool for the game Eschaton. Allows users to track cards acquired 
+                    during gameplay, calculate attribute totals, and view average values. Features an intuitive 
+                    interface for easy card management and statistical analysis.
+                </p>
+
+                <div class="project-demo">
+                    <img src="https://raw.githubusercontent.com/kyleshrop/EschatonDeckTracker/main/demo.gif" 
+                         alt="Eschaton Deck Tracker Demo" 
+                         class="demo-gif"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display:none; padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; color: #94a3b8; border: 1px solid var(--border);">
+                        Demo GIF temporarily unavailable
+                    </div>
+                </div>
+                
+                <div class="tech-stack">
+                    <h4>Technologies Used:</h4>
+                    <div class="project-tech-tags">
+                        <span class="project-tech-tag">JavaScript</span>
+                        <span class="project-tech-tag">HTML5</span>
+                        <span class="project-tech-tag">CSS3</span>
+                        <span class="project-tech-tag">Local Storage</span>
+                        <span class="project-tech-tag">Game Development</span>
+                    </div>
+                </div>
+                
+                <div class="project-links">
+                    <a href="https://github.com/kyleshrop/EschatonDeckTracker" target="_blank" rel="noopener noreferrer" class="project-link">
+                        <svg class="github-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        View Repository
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Kyle Shropshire. All rights reserved.</p>
@@ -721,8 +991,8 @@
             });
         }, observerOptions);
 
-        // Observe all cards
-        document.querySelectorAll('.card').forEach(card => {
+        // Observe all cards and project cards
+        document.querySelectorAll('.card, .project-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
